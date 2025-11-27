@@ -1,22 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Boba Recipe</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <nav id="navbar" ref="navbar-ref">
-        <a href="./index.html">Home</a>
-        <a href="./recipe.html">Recipe</a>
-        <a href="./recipe2.html">Recipe 2</a>
-    </nav>
-    <h1 class="title">Recipe</h1>
-    <p>This recipe is easier</p>
-    <p>Step 1: Boil around 1/4 cup water</p>
-    <p>Step 2: Put a small handful of tea leaves in. Let steep depending on which type you're using. Recommended tea is oolong, black, or red.</p>
-    <p>Step 3: Add to milk, a bit at a time until the taste is right for you.</p>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boba Recipe</title>
+  <link rel="stylesheet" href="./style.css" />
+  <style>
+    svg.blob-motion {
+      width: clamp(300px, 60vw, 2700px);
+      height: auto;
+      margin: 0 auto;
+      display: block;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+
+    #blob1 {
+      will-change: transform;
+    }
+
+    #blob2 {
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="navbar" ref="navbar-ref">
+    <a href="./index.html">Home</a>
+    <a href="./recipe.html">Recipe</a>
+    <a href="./recipe2.html">Recipe 2</a>
+  </nav>
+  <h1 class="title">Recipe</h1>
+  <p>This recipe is easier</p>
+  <p>Step 1: Boil around 1/4 cup water</p>
+  <p>Step 2: Put a small handful of tea leaves in. Let steep depending on which type you're using. Recommended tea is
+    oolong, black, or red.</p>
+  <p>Step 3: Add to milk, a bit at a time until the taste is right for you.</p>
+  <svg class="blob-motion" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(471.5 301.3)">
+      <path id="blob1"
+        d="M159.3,-66.4C174,-6.5,131.1,57.4,65.5,109.6C0,161.8,-88.2,202.3,-143.6,168.8C-199,135.3,-221.7,28,-192.3,-52.2C-162.9,-132.3,-81.5,-185.1,-4.6,-183.6C72.3,-182.2,144.6,-126.3,159.3,-66.4z"
+        fill="#54add6" />
+    </g>
+    <g transform="translate(445.3 277.9)">
+      <path id="blob2"
+        d="M162,-187.7C200.6,-160.7,216,-100.7,213,-47.9C210,5,188.6,50.7,167.1,104.5C145.6,158.3,124.1,220.1,82.5,241.9C40.8,263.7,-21,245.6,-76,220.5C-131.1,195.4,-179.4,163.5,-196.4,120.1C-213.4,76.8,-199,22.1,-184.4,-27.6C-169.8,-77.4,-155,-122.2,-124.2,-150.6C-93.4,-179,-46.7,-191,7.5,-199.9C61.7,-208.9,123.4,-214.7,162,-187.7z"
+        fill="#439cc5" style="opacity: 0" />
+    </g>
+  </svg>
+  <script src="
+https://cdn.jsdelivr.net/npm/kute.js@2.2.4/dist/kute.min.js
+"></script>
+  <script>
+    const blob1 = document.querySelector('#blob1')
+    const blob2 = document.querySelector('#blob2')
+
+    const anim = KUTE.fromTo(
+      blob1,
+      { path: blob1 },
+      { path: blob2 },
+      {
+        repeat: Infinity,
+        duration: 8000,
+        yoyo: true,
+        easing: 'easeInOut'
+      }
+    )
+
+
+    anim.start();
+  </script>
+</body>
+
 </html>
