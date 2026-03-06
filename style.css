@@ -28,10 +28,19 @@
 
 @keyframes fadeOut {
     0% {
-        opacity: 1;
+        opacity: 100%;
     }
     100% {
-        opacity: 0;
+        opacity: 0%;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
     }
 }
 
@@ -99,6 +108,11 @@ p {
 .fade-out {
     animation: fadeOut 500ms ease-in-out;
 }
+
+.fade-in {
+    animation: fadeIn 250ms ease-in-out;
+}
+
 
 #navbar {
     background-color: var(--navbar-background);
