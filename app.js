@@ -5,7 +5,6 @@ let links = document.querySelectorAll("a");
 
 // If they exist
 if (links) {
-
     // Go through each of them
     for (let i = 0; i < links.length; i++) {
         let link = links[i];
@@ -31,7 +30,7 @@ if (links) {
                 } else {
                     console.error("Whaaaaaa")
                 }
-            }, 500);
+            }, 250);
         });
     }
 }
